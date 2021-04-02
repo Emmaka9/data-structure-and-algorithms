@@ -15,9 +15,9 @@ def binary_search(input_array, value):
     start = 0
     end = len(input_array)
     mid  = (start + end) // 2
-    print('mid:', mid)
+    #print('mid:', mid)
 
-    while mid < 7:
+    while start < end and mid :
         if input_array[mid] == value:
             print('inside mid:', mid)
             return mid
@@ -38,5 +38,6 @@ test_list = [1,3,9,11,15,19,29]
 test_val1 = 25
 test_val2 = 15
 
-print(binary_search(test_list, test_val2))
 print(binary_search(test_list, test_val1))
+#print(binary_search(test_list, test_val2))
+
