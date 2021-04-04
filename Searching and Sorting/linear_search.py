@@ -1,4 +1,5 @@
-''' Implementation of Linear Search algorithm.
+''' 
+Implementation of Linear Search algorithm.
 ---------------------------------------------------
 1. Function 'linear_search(input_array, value) implements the array'
     -> Find the value in the input_array.
