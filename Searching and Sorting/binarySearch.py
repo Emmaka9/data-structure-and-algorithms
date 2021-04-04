@@ -10,28 +10,31 @@ elements are in a strictly increasing order.
 Return the index of value, or -1 if the value
 doesn't exist in the list."""
 
+'''
+The Golden Rule of coding: Say what you mean simply and directly.
+
+'''
+
 def binary_search(input_array, value):
     """Your code goes here."""
-    start = 0
-    end = len(input_array)
-    mid  = (start + end) // 2
-    #print('mid:', mid)
+    #  0 1 2 3  4  5  6
+    # [1,3,9,11,15,19,29] -> Find 25
 
-    while start < end and mid :
+    start, end = 0, len(input_array)-1
+
+    # invariant: if input_array[mid]==value for any mid, then start<=mid<=end.
+    while start <= end:
+        mid = start + (end - start) //2
+
         if input_array[mid] == value:
-            print('inside mid:', mid)
             return mid
-
-        elif value < input_array[mid]:
-            end = mid
-            mid = (start + end) // 2
-            print('inside value< :',start, end, mid)
         elif value > input_array[mid]:
-            start = mid
-            mid = (start + end) // 2
-            print('inside value> :',start, end, mid)
+            start = mid + 1
+        
+        elif value < input_array[mid]:
+            end = mid -1
 
-    # if the value not found:
+
     return -1
 
 test_list = [1,3,9,11,15,19,29]
@@ -39,5 +42,5 @@ test_val1 = 25
 test_val2 = 15
 
 print(binary_search(test_list, test_val1))
-#print(binary_search(test_list, test_val2))
-
+print(binary_search(test_list, test_val2))
+#print(binary_search(test_list, -5))
