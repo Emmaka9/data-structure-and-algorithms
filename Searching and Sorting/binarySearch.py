@@ -12,7 +12,7 @@ doesn't exist in the list."""
 
 '''
 The Golden Rule of coding: Say what you mean simply and directly.
-
+ref: The Elements of Programming Style
 '''
 
 def binary_search(input_array, value):
@@ -33,8 +33,7 @@ def binary_search(input_array, value):
         
         elif value < input_array[mid]:
             end = mid -1
-
-
+            
     return -1
 
 test_list = [1,3,9,11,15,19,29]
@@ -43,4 +42,4 @@ test_val2 = 15
 
 print(binary_search(test_list, test_val1))
 print(binary_search(test_list, test_val2))
-#print(binary_search(test_list, -5))
+print(binary_search(test_list, 29))
