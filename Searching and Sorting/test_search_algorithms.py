@@ -17,7 +17,7 @@ from linear_search import linear_search
 from binarySearch import binary_search
 
 
-class TestLinearSearchAlgorithm(unittest.TestCase):
+class TesSearchAlgorithm(unittest.TestCase):
 
      test_array_1 = [1, 3, 9, 11, 15,19,29]
 
