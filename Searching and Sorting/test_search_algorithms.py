@@ -17,7 +17,7 @@ from linear_search import linear_search
 from binarySearch import binary_search
 
 
-class TesSearchAlgorithm(unittest.TestCase):
+class TestSearchAlgorithms(unittest.TestCase):
 
      test_array_1 = [1, 3, 9, 11, 15,19,29]
 
@@ -34,18 +34,18 @@ class TesSearchAlgorithm(unittest.TestCase):
           self._test_search_algorithm(binary_search, input_array, saught_value, expected_output)
 
      def test_1(self):
-          self._test_all_search_funcs([1, 3, 9, 11, 15,19,29], 25)
+          self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 25)
 
      def test_first_element(self):
           
-          self._test_all_search_funcs([1, 3, 9, 11, 15,19,29], 1)
+          self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 1)
      
      def test_last_element(self):
           
-          self._test_all_search_funcs(test_array_1, 29)
+          self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 29)
      
      def test_2(self):
-          self._test_all_search_funcs(test_array_1, 15)
+          self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 15)
 
 
 
