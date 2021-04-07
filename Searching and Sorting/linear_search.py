@@ -18,11 +18,11 @@ def linear_search(input_array, value):
 
 
 
-if __name__ == "__main__":
-    ''' Test Cases '''
-    test_list = [1,3,9,11,15,19,29]
-    test_val1 = 25
-    test_val2 = 15
+# if __name__ == "__main__":
+#     ''' Test Cases '''
+#     test_list = [1,3,9,11,15,19,29]
+#     test_val1 = 25
+#     test_val2 = 15
 
-    print(linear_search(test_list, test_val1))
-    print(linear_search(test_list, test_val2))
+#     print(linear_search(test_list, test_val1))
+#     print(linear_search(test_list, test_val2))

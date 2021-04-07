@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 #ignore files by emmaka
-List-Based Collections/new.py
+List-Based\ Collections/new.py
+Searching\ and\ Sorting/prac.py
