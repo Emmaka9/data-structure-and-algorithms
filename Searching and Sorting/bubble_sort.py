@@ -2,7 +2,6 @@
 '''
 This program implements bubble_sort(input_array)
 '''
-import unittest
 
 #[1, 3, 4, 6, 9, 14, 20, 21, 21, 25]
 
@@ -18,7 +17,7 @@ def bubble_sort(input_array:list) -> list:
             if input_array[i] > input_array[i + 1]:
                 input_array[i], input_array[i + 1] = input_array[i + 1], input_array[i]
                 sorted = False
-            print(input_array, 'numItr: %d size: %d, i:%d'%(numItr, size, i))
+            # print(input_array, 'numItr: %d size: %d, i:%d'%(numItr, size, i))
             numItr += 1
         size -= 1
     print('Number of iteration needed in bubbleSort: %d' %numItr)
@@ -28,7 +27,7 @@ def bubble_sort(input_array:list) -> list:
 #--------------------------------------------------------
 # An wikipedia version of Bubble Sort
 
-def bubble_sort_Optimized(A:list) -> list:
+def bubble_sort_v2(A:list) -> list:
     n = len(A)
     numItr = 0 # to count the number of iteration needed.
     
@@ -40,7 +39,7 @@ def bubble_sort_Optimized(A:list) -> list:
                 A[i - 1], A[i] = A[i], A[i - 1]
                 newn = i
             numItr += 1
-            print(A,'numItr: %d n: %d, newn:%d, i:%d'%(numItr, n, newn, i))
+            #print(A,'numItr: %d n: %d, newn:%d, i:%d'%(numItr, n, newn, i))
         n = newn
 
     print('Number of iteration needed in bubble_sort_Optimized: %d' %numItr)
@@ -64,25 +63,27 @@ def bubble_sort_Optimized(A:list) -> list:
 
 #________________________________________________________________________--
 
+import unittest
+
 class TestBubbleSortAlgorithm(unittest.TestCase):
 
-    def _test_sort(self, sorting_func, bubble_sort, expected_list):
+    def _test_sort(self, sorting_func, input_list, expected_list):
         self.assertEqual(sorting_func(input_list), expected_list)
 
     def test_bubble_sort_v1_with_positive_numbers(self):
-        self._test_sort(bubble_sort_v1, [5, 5, 7, 8, 2, 4, 1], [1, 2, 4, 5, 5, 7, 8])
+        self._test_sort(bubble_sort, [5, 5, 7, 8, 2, 4, 1], [1, 2, 4, 5, 5, 7, 8])
 
     def test_bubble_sort_v1_negative_numbers_only(self):
-        self._test_sort(bubble_sort_v1, [-1, -3, -5, -7, -9, -5], [-9, -7, -5, -5, -3, -1])
+        self._test_sort(bubble_sort, [-1, -3, -5, -7, -9, -5], [-9, -7, -5, -5, -3, -1])
 
     def test_bubble_sort_v1_with_negative_and_positive_numbers(self):
-        self._test_sort(bubble_sort_v1, [-6, -5, -4, 0, 5, 5, 7, 8, 2, 4, 1], [-6, -5, -4, 0, 1, 2, 4, 5, 5, 7, 8])
+        self._test_sort(bubble_sort, [-6, -5, -4, 0, 5, 5, 7, 8, 2, 4, 1], [-6, -5, -4, 0, 1, 2, 4, 5, 5, 7, 8])
 
     def test_bubble_sort_v1_same_numbers(self):
-        self._test_sort(bubble_sort_v1, [1, 1, 1, 1], [1, 1, 1, 1])
+        self._test_sort(bubble_sort, [1, 1, 1, 1], [1, 1, 1, 1])
 
     def test_bubble_sort_v1_empty_list(self):
-        self._test_sort(bubble_sort_v1, [], [])
+        self._test_sort(bubble_sort, [], [])
 
     def test_bubble_sort_v2_with_positive_numbers(self):
         self._test_sort(bubble_sort_v2, [5, 5, 7, 8, 2, 4, 1], [1, 2, 4, 5, 5, 7, 8])
@@ -99,11 +100,13 @@ class TestBubbleSortAlgorithm(unittest.TestCase):
     def test_bubble_sort_v2_empty_list(self):
         self._test_sort(bubble_sort_v2, [], [])
 
+
 #__________________________________________________________________________--
 
 
 
-
+if __name__=='__main__':
+    unittest.main()
 
 
 
@@ -132,7 +135,7 @@ print(bubble_sort(test_array1))
 print('-'*60)
 # Test Optimized bubble sort
 
-print(bubble_sort_Optimized(test_array1_O))
+print(bubble_sort_v2(test_array1_O))
 
 # print(bubble_sort(test_array1))
 # # a = [4, 6, 9]
