@@ -4,11 +4,13 @@ This program implements print_nums(n) function from 1 through n.
 
 print('-'*20)
 def print_nums(N):
-    end =
     assert N >= 0
+    
+    line_gap = True
+    end = '\n' if line_gap else ""
 
     if N <= 1: 
-        print(N, end='')
+        print(N, end=end)
     else:
         print_nums(N-1)
         print(' ',N, end=end)

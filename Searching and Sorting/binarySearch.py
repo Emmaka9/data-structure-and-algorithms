@@ -17,7 +17,7 @@ ref: The Elements of Programming Style
 
 
 
-def binary_search(input_array, value):
+def binary_search_v1(input_array, value):
     """Your code goes here."""
     #  0 1 2 3  4  5  6
     # [1,3,9,11,15,19,29] -> Find 25
@@ -39,11 +39,76 @@ def binary_search(input_array, value):
 
     return -1
 
+# ask someone to look into it for me.
+def binary_search_check_someone(arr, value):
+    upper = len(arr)
+    lower = 0
+    mid1 = 0
+    while(lower < upper):
+        #print('loop')
+        mid = lower + (upper - lower)//2
+
+        if arr[mid] == value: return mid
+        elif value > arr[mid]: lower = mid
+        elif value < arr[mid]: upper = mid
+
+        if mid1 == mid: return -11
+        mid1 = mid
+    return -1
+
+def binary_search_v2(arr, value):
+    upper = len(arr)
+    lower = 0
+
+    while(lower <= upper):
+        #print('loop')
+        mid = lower + (upper - lower)//2
+
+        if value == arr[mid]: return mid
+        elif value > arr[mid]: lower = mid+1
+        elif value < arr[mid]: upper = mid-1
+    return -1
+
+
+def binary_search_v3(arr, value):
+    upper = len(arr)
+    lower = 0
+
+    while(lower < upper):
+        #print('loop')
+        mid = lower + (upper - lower)//2
+
+        if value == arr[mid]: return mid
+        elif value > arr[mid]: lower = mid+1
+        elif value < arr[mid]: upper = mid
+    return -1
+
+'''
+    Implementation -- version 4.
+--Doesn't works while saught_value doesn't exist in the array.
+'''
+def binary_search_v4(arr, value):
+    upper = len(arr)
+    lower = 0
+
+    while lower < upper:
+        i = lower + (upper - lower)//2
+
+        if arr[i] == value: return i
+        if arr[i] < value: lower = i
+        if arr[i] > value: upper = i
+    return -1
+
+
+
+
 # test_list = [1,3,9,11,15,19,29]
 # test_val1 = 25
 # test_val2 = 15
 
-# print(binary_search(test_list, test_val1)) #prints -1
-# print(binary_search(test_list, test_val2)) #prints 4
-# print(binary_search(test_list, 29)) #prints 6
-# print(binary_search(test_list, 2)) #prints 6
+# print(binary_search(test_list, test_val1)) #prints -1 #v4 deosn't work
+# print(binary_search(test_list, test_val2)) #prints 4 # works
+# print(binary_search(test_list, 29)) #prints 6 #works
+# print(binary_search(test_list, 2)) #prints -1 #doesn't work
+# print(binary_search(test_list, 9)) # prints 2 # works
+# print(binary_search(test_list, 10)) # prints -1 # doesn't work

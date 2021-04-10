@@ -1,4 +1,5 @@
-''' This is my first time writing test for a program in Python.
+''' 
+This is my first time writing test for a program in Python.
 -----------------------------------------------------------------
 ref: RealPython, https://docs.python-guide.org/writing/tests/
      https://pymbook.readthedocs.io/en/latest/testing.html
@@ -8,13 +9,16 @@ ref: RealPython, https://docs.python-guide.org/writing/tests/
 This program is to test all the search algorithms implemented in this directory.
 Search Algorithms, namely:
 1. Linear Search
-2. Binary Search
+2. Linear Search recursive implementation
+2. Binary Search -> v1, v2, v3, v4, check_someone(need more test cases.)
+3. Binary Search recursive implementation
 
 '''
 
 import unittest
 from linear_search import linear_search
-from binarySearch import binary_search
+from binarySearch import *
+from linear_search_recursive import linear_search_recursive
 
 
 class TestSearchAlgorithms(unittest.TestCase):
@@ -31,13 +35,19 @@ class TestSearchAlgorithms(unittest.TestCase):
                expected_output = -1
 
           self._test_search_algorithm(linear_search, input_array, saught_value, expected_output)
-          self._test_search_algorithm(binary_search, input_array, saught_value, expected_output)
+          self._test_search_algorithm(linear_search_recursive, input_array, saught_value, expected_output)
+          self._test_search_algorithm(binary_search_v1, input_array, saught_value, expected_output)
+          self._test_search_algorithm(binary_search_v2, input_array, saught_value, expected_output)
+          self._test_search_algorithm(binary_search_v3, input_array, saught_value, expected_output)
+          self._test_search_algorithm(binary_search_v4, input_array, saught_value, expected_output)
+          self._test_search_algorithm(binary_search_check_someone, input_array, saught_value, expected_output)
+          
+
 
      def test_1(self):
           self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 25)
 
      def test_first_element(self):
-          
           self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 1)
      
      def test_last_element(self):
@@ -46,6 +56,12 @@ class TestSearchAlgorithms(unittest.TestCase):
      
      def test_2(self):
           self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 15)
+     
+     def test_3(self):
+          self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 10)
+
+     def test_4(self):
+          self._test_all_search_funcs(TestSearchAlgorithms.test_array_1, 9)
 
 
 
